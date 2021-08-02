@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Githubstagram</string>
+    <string name="welcome_messages">Hello, %1$s! You have %2$d new messages.</string>
+    <string name="name">Name</string>
+    <string name="project_link">Web link</string>
+    <string name="click_here">Click here</string>
+    <string name="project_description">Project description</string>
+    <string name="contributors">Contributors</string>
+    <string name="fetching">Fetching</string>
+    <string name="repositories">Repositories</string>
+    <string name="repository_name">Repository name</string>
+    <string name="searching">Searching</string>
+    <string name="sign_in_with_github">Sign in with Github</string>
+    <string name="continue_without_authentication">Continue without authentication</string>
+    <string name="filters">Filters</string>
+    <string name="close">Close</string>
+    <string name="sort_by">Sort by</string>
+    <string name="stars">Stars</string>
+    <string name="forks">Forks</string>
+    <string name="updated">Updated</string>
+    <string name="biography">Biography</string>
+    <string name="email">Email</string>
+    <string name="type">User Type</string>
+</resources>

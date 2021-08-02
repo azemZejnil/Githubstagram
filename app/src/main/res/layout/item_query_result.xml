@@ -1,0 +1,197 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.azem.githubstagram.data.model.Repository"/>
+        <variable
+            name="repo"
+            type="com.azem.githubstagram.data.model.Repository" />
+    </data>
+
+    <androidx.cardview.widget.CardView  
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:cardElevation="@dimen/card_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/item_search_thumbnail"
+                setAvatar="@{repo.owner.avatar_url}"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/medium_padding"
+                app:layout_constraintBottom_toTopOf="@+id/item_search_divider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:id="@+id/item_search_owner_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_padding"
+                android:layout_marginTop="@dimen/normal_padding"
+                android:layout_marginEnd="@dimen/normal_padding"
+                android:gravity="left|center"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@id/item_search_thumbnail"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:id="@+id/item_search_owner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@{repo.owner.login}"
+                    android:textSize="@dimen/normal_text" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_search_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_padding"
+                android:layout_marginEnd="@dimen/normal_padding"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/minimal_padding"
+                android:text="@{repo.name}"
+                android:textSize="@dimen/highlighted_text"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@id/item_search_thumbnail"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_search_owner_parent" />
+
+            <TextView
+                android:id="@+id/item_language"
+                android:text="@{repo.language}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/design_default_color_primary"
+                android:layout_marginStart="@dimen/medium_padding"
+                android:layout_marginEnd="@dimen/normal_padding"
+                android:layout_weight="1"
+                android:textSize="@dimen/small_text"
+                app:layout_constraintLeft_toRightOf="@id/item_search_thumbnail"
+                app:layout_constraintTop_toBottomOf="@id/item_search_name" />
+
+            <View
+                android:id="@+id/item_search_divider"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/minimal_padding"
+                android:background="#000"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_language" />
+
+            <LinearLayout
+                android:id="@+id/item_search_statistic_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/normal_padding"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_search_divider">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Watchers"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/small_text" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Forks"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/small_text" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Issues"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/small_text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/normal_padding"
+                            android:gravity="center"
+                            android:text="@{`` +repo.watchers}"
+                            android:textSize="@dimen/small_text" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/normal_padding"
+                            android:gravity="center"
+                            android:text="@{`` +repo.forks}"
+                            android:textSize="@dimen/small_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/normal_padding"
+                            android:gravity="center"
+                            android:text="@{`` +repo.open_issues}"
+                            android:textSize="@dimen/small_text" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
